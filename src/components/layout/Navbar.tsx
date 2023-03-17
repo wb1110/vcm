@@ -11,6 +11,7 @@ import { styled } from '@mui/material/styles'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { MainListItems, secondaryListItems } from './listItems'
 
 const drawerWidth: number = 240
@@ -77,9 +78,6 @@ function Navbar() {
     }
   }
 
-  const logout = () => {
-    window.location.href = `${baseUrl}/account/logout`
-  }
   const [open, setOpen] = React.useState(true)
   const toggleDrawer = () => {
     setOpen(!open)
@@ -118,9 +116,11 @@ function Navbar() {
             }}
           >
             <span>User name here</span>
-            <Button onClick={logout} variant="contained" color="secondary">
-              Log out
-            </Button>
+            <Link to={'/signin'}>
+              <Button variant="contained" color="secondary">
+                Log out
+              </Button>
+            </Link>
             <IconButton color="inherit"></IconButton>
           </div>
         </Toolbar>
