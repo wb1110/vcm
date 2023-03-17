@@ -1,9 +1,13 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import SignIn from 'src/components/SignIn'
+import { Outlet } from 'react-router-dom'
+import Layout from '../components/layout/Layout'
 
 function App() {
-  return <Route exact path="/" component={SignIn} />
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  )
 }
 
 export default App
