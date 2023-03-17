@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from '@mui/material'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -5,7 +6,6 @@ import ErrorPage from './components/ErrorPage'
 import SignIn from './components/SignIn'
 import App from './containers/App'
 import Dashboard from './routes/Dashboard'
-import Root from './routes/root'
 import Services from './routes/Services'
 
 const router = createBrowserRouter([
@@ -30,8 +30,21 @@ const router = createBrowserRouter([
   },
 ])
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#363740',
+    },
+    secondary: {
+      main: '#FFFFFF',
+    },
+  },
+})
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 )
